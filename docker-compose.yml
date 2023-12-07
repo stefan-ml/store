@@ -22,3 +22,9 @@ services:
       dockerfile: Store.Service.Product/Dockerfile
 
   
+  store.service.basket:
+    image: ${DOCKER_REGISTRY-}storeservicebasket
+    build:
+      context: .
+      dockerfile: Store.Service.Basket/Dockerfile
+
