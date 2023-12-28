@@ -66,8 +66,8 @@ namespace EventTicket.Services.EventCatalog.Migrations
                 columns: new[] { "EventId", "Artist", "CategoryId", "City", "Date", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { new Guid("3448d5a4-0f72-4dd7-bf15-c14a46b26c00"), "Test 2", new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"), "Nis", new DateTime(2024, 9, 28, 11, 35, 11, 839, DateTimeKind.Local).AddTicks(8983), "Test 2", "https://example.com/image2.jpg", "Test 2", 85 },
-                    { new Guid("ee272f8b-6096-4cb6-8625-bb4bb2d89e8b"), "Test", new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"), "Belgrade", new DateTime(2024, 6, 28, 11, 35, 11, 839, DateTimeKind.Local).AddTicks(8912), "Test", "https://example.com/image1.jpg", "Test", 65 }
+                    { new Guid("3448d5a4-0f72-4dd7-bf15-c14a46b26c00"), "Test 2", new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"), "Nis", new DateTime(2024, 9, 28, 14, 46, 53, 823, DateTimeKind.Local).AddTicks(4543), "Test 2", "https://example.com/image2.jpg", "Test 2", 85 },
+                    { new Guid("ee272f8b-6096-4cb6-8625-bb4bb2d89e8b"), "Test", new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"), "Belgrade", new DateTime(2024, 6, 28, 14, 46, 53, 823, DateTimeKind.Local).AddTicks(4265), "Test", "https://example.com/image1.jpg", "Test", 65 }
                 });
 
             migrationBuilder.CreateIndex(
