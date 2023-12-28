@@ -8,7 +8,9 @@
         "store.service.basket": "StartDebugging",
         "eventticket.services.eventcatalog": "StartDebugging",
         "eventticket.services.ordering": "StartDebugging",
-        "eventticker.services.discount": "StartDebugging"
+        "eventticker.services.discount": "StartDebugging",
+        "eventticket.services.payment": "StartDebugging",
+        "eventticket.services.shoppingbasket": "StartDebugging"
       }
     }
   }

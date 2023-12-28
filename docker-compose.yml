@@ -36,3 +36,17 @@ services:
       context: .
       dockerfile: EventTicker.Services.Discount/Dockerfile
 
+
+  # eventticket.services.payment:
+  #   image: ${DOCKER_REGISTRY-}eventticketservicespayment
+  #   build:
+  #     context: .
+  #     dockerfile: EventTicket.Services.Payment/Dockerfile
+
+
+  # eventticket.services.shoppingbasket:
+  #   image: ${DOCKER_REGISTRY-}eventticketservicesshoppingbasket
+  #   build:
+  #     context: .
+  #     dockerfile: EventTicket.Services.ShoppingBasket/Dockerfile
+
