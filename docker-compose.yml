@@ -15,14 +15,10 @@ services:
       - "./data/:/var/opt/mssql/data/"
       - "./log/:/var/opt/mssql/log/"
       - "./secrets/:/var/opt/mssql/secrets/"
-  store.service.product:
-    image: ${DOCKER_REGISTRY-}storeserviceproduct
+
+  eventticket.services.eventcatalog:
+    image: ${DOCKER_REGISTRY-}eventticketserviceseventcatalog
     build:
       context: .
-      dockerfile: Store.Service.Product/Dockerfile
-  store.service.basket:
-    image: ${DOCKER_REGISTRY-}storeservicebasket
-    build:
-      context: .
-      dockerfile: Store.Service.Basket/Dockerfile
+      dockerfile: EventTicket.Services.EventCatalog/Dockerfile
 

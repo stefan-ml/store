@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "store.service.product": "StartDebugging",
-        "store.service.basket": "StartDebugging"
+        "store.service.basket": "StartDebugging",
+        "eventticket.services.eventcatalog": "StartDebugging"
       }
     }
   }
