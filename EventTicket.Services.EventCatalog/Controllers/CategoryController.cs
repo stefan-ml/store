@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EventTicket.Services.EventCatalog.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/categories")]
     [ApiController]
     public class CategoryController : ControllerBase
     {

@@ -6,7 +6,8 @@
       "serviceActions": {
         "store.service.product": "StartDebugging",
         "store.service.basket": "StartDebugging",
-        "eventticket.services.eventcatalog": "StartDebugging"
+        "eventticket.services.eventcatalog": "StartDebugging",
+        "eventticket.services.ordering": "StartDebugging"
       }
     }
   }

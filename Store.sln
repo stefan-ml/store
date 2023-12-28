@@ -9,7 +9,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Service.Basket", "Store.Service.Basket\Store.Service.Basket.csproj", "{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.EventCatalog", "EventTicket.Services.EventCatalog\EventTicket.Services.EventCatalog.csproj", "{04A104F1-B6F1-4791-AACE-72FF9B7691DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.EventCatalog", "EventTicket.Services.EventCatalog\EventTicket.Services.EventCatalog.csproj", "{04A104F1-B6F1-4791-AACE-72FF9B7691DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.Ordering", "EventTicket.Services.Ordering\EventTicket.Services.Ordering.csproj", "{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

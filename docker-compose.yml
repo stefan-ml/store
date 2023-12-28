@@ -22,3 +22,10 @@ services:
       context: .
       dockerfile: EventTicket.Services.EventCatalog/Dockerfile
 
+
+  eventticket.services.ordering:
+    image: ${DOCKER_REGISTRY-}eventticketservicesordering
+    build:
+      context: .
+      dockerfile: EventTicket.Services.Ordering/Dockerfile
+
