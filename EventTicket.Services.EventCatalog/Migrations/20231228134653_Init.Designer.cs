@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventTicket.Services.EventCatalog.Migrations
 {
     [DbContext(typeof(EventCatalogDbContext))]
-    [Migration("20231228103511_Init")]
+    [Migration("20231228134653_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -110,7 +110,7 @@ namespace EventTicket.Services.EventCatalog.Migrations
                             Artist = "Test",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             City = "Belgrade",
-                            Date = new DateTime(2024, 6, 28, 11, 35, 11, 839, DateTimeKind.Local).AddTicks(8912),
+                            Date = new DateTime(2024, 6, 28, 14, 46, 53, 823, DateTimeKind.Local).AddTicks(4265),
                             Description = "Test",
                             ImageUrl = "https://example.com/image1.jpg",
                             Name = "Test",
@@ -122,7 +122,7 @@ namespace EventTicket.Services.EventCatalog.Migrations
                             Artist = "Test 2",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             City = "Nis",
-                            Date = new DateTime(2024, 9, 28, 11, 35, 11, 839, DateTimeKind.Local).AddTicks(8983),
+                            Date = new DateTime(2024, 9, 28, 14, 46, 53, 823, DateTimeKind.Local).AddTicks(4543),
                             Description = "Test 2",
                             ImageUrl = "https://example.com/image2.jpg",
                             Name = "Test 2",

@@ -29,3 +29,10 @@ services:
       context: .
       dockerfile: EventTicket.Services.Ordering/Dockerfile
 
+
+  eventticker.services.discount:
+    image: ${DOCKER_REGISTRY-}eventtickerservicesdiscount
+    build:
+      context: .
+      dockerfile: EventTicker.Services.Discount/Dockerfile
+

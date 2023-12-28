@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.EventC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.Ordering", "EventTicket.Services.Ordering\EventTicket.Services.Ordering.csproj", "{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicker.Services.Discount", "EventTicker.Services.Discount\EventTicker.Services.Discount.csproj", "{0969C6B6-69E7-4517-9329-15ACD2A3AD99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +41,15 @@ Global
 		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0969C6B6-69E7-4517-9329-15ACD2A3AD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0969C6B6-69E7-4517-9329-15ACD2A3AD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0969C6B6-69E7-4517-9329-15ACD2A3AD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0969C6B6-69E7-4517-9329-15ACD2A3AD99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02F2E303-0EC8-494E-800A-8718EF8A05ED}
 	EndGlobalSection
 EndGlobal

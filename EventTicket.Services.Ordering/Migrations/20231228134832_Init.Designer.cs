@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventTicket.Services.Ordering.Migrations
 {
     [DbContext(typeof(OrderDbContext))]
-    [Migration("20231228131523_Init")]
+    [Migration("20231228134832_Init")]
     partial class Init
     {
         /// <inheritdoc />
