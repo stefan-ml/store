@@ -1,0 +1,23 @@
+﻿@model int
+<div class="row">
+    <div class="col-md-9">
+    </div>
+    <div class="col-md-1">
+        <a asp-controller="ShoppingBasket" asp-action="Index">
+            <img class="shoppingCartIcon" src="~/img/cart-plus.svg" alt="Shopping cart icon" />
+        </a>
+    </div>
+    <div class="col-md-2 ticketAmount">
+        @Model
+        <span class="tickets">
+            TICKETS
+        </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <a class="navbar-brand" asp-controller="EventCatalog" asp-action="Index">
+            <img src="~/img/logo9.png" class="mr-3" />
+        </a>
+    </div>
+</div>

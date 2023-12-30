@@ -50,3 +50,10 @@ services:
   #     context: .
   #     dockerfile: EventTicket.Services.ShoppingBasket/Dockerfile
 
+
+  eventticket.frontend.client:
+    image: ${DOCKER_REGISTRY-}eventticketfrontendclient
+    build:
+      context: .
+      dockerfile: EventTicket.Frontend.Client/Dockerfile
+
