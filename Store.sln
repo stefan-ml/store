@@ -3,21 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Service.Product", "Store.Service.Product\Store.Service.Product.csproj", "{9A454CF3-4A07-4904-A4CA-9CA89ABFEAE2}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D3137759-8A1B-4016-8BA6-6B580F373075}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Service.Basket", "Store.Service.Basket\Store.Service.Basket.csproj", "{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.EventCatalog", "EventTicket.Services.EventCatalog\EventTicket.Services.EventCatalog.csproj", "{04A104F1-B6F1-4791-AACE-72FF9B7691DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.Ordering", "EventTicket.Services.Ordering\EventTicket.Services.Ordering.csproj", "{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.Ordering", "EventTicket.Services.Ordering\EventTicket.Services.Ordering.csproj", "{D6B6E7BD-951A-48CD-93AB-E42BAFD159B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicker.Services.Discount", "EventTicker.Services.Discount\EventTicker.Services.Discount.csproj", "{0969C6B6-69E7-4517-9329-15ACD2A3AD99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.Discount", "EventTicker.Services.Discount\EventTicket.Services.Discount.csproj", "{0969C6B6-69E7-4517-9329-15ACD2A3AD99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.Payment", "EventTicket.Services.Payment\EventTicket.Services.Payment.csproj", "{E00D83ED-CC4C-49F4-B310-304FC911CB9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.Payment", "EventTicket.Services.Payment\EventTicket.Services.Payment.csproj", "{E00D83ED-CC4C-49F4-B310-304FC911CB9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicket.Services.ShoppingBasket", "EventTicket.Services.ShoppingBasket\EventTicket.Services.ShoppingBasket.csproj", "{DE5F7A42-2AAB-4E34-869B-FF6D594A530D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Services.ShoppingBasket", "EventTicket.Services.ShoppingBasket\EventTicket.Services.ShoppingBasket.csproj", "{DE5F7A42-2AAB-4E34-869B-FF6D594A530D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicket.Frontend.Client", "EventTicket.Frontend.Client\EventTicket.Frontend.Client.csproj", "{54C03798-804D-4BE4-A3CD-01CCB61EA52E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +23,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9A454CF3-4A07-4904-A4CA-9CA89ABFEAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A454CF3-4A07-4904-A4CA-9CA89ABFEAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A454CF3-4A07-4904-A4CA-9CA89ABFEAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A454CF3-4A07-4904-A4CA-9CA89ABFEAE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3137759-8A1B-4016-8BA6-6B580F373075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3137759-8A1B-4016-8BA6-6B580F373075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3137759-8A1B-4016-8BA6-6B580F373075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3137759-8A1B-4016-8BA6-6B580F373075}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2F7CA3B-32FA-4D51-A5CE-574426D93C42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04A104F1-B6F1-4791-AACE-72FF9B7691DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +47,10 @@ Global
 		{DE5F7A42-2AAB-4E34-869B-FF6D594A530D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE5F7A42-2AAB-4E34-869B-FF6D594A530D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE5F7A42-2AAB-4E34-869B-FF6D594A530D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C03798-804D-4BE4-A3CD-01CCB61EA52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C03798-804D-4BE4-A3CD-01CCB61EA52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C03798-804D-4BE4-A3CD-01CCB61EA52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C03798-804D-4BE4-A3CD-01CCB61EA52E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
