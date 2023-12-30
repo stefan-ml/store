@@ -18,6 +18,9 @@ services:
 
   eventticket.services.eventcatalog:
     image: ${DOCKER_REGISTRY-}eventticketserviceseventcatalog
+    ports:
+      - "5001:80"
+      - "5011:443"
     build:
       context: .
       dockerfile: EventTicket.Services.EventCatalog/Dockerfile
@@ -25,6 +28,9 @@ services:
 
   eventticket.services.ordering:
     image: ${DOCKER_REGISTRY-}eventticketservicesordering
+    ports:
+      - "5002:80"
+      - "5012:443"
     build:
       context: .
       dockerfile: EventTicket.Services.Ordering/Dockerfile
@@ -32,6 +38,9 @@ services:
 
   eventticker.services.discount:
     image: ${DOCKER_REGISTRY-}eventtickerservicesdiscount
+    ports:
+      - "5003:80"
+      - "5013:443"
     build:
       context: .
       dockerfile: EventTicker.Services.Discount/Dockerfile
@@ -53,6 +62,9 @@ services:
 
   eventticket.frontend.client:
     image: ${DOCKER_REGISTRY-}eventticketfrontendclient
+    ports:
+      - "5000:8080"
+      - "5010:8081"
     build:
       context: .
       dockerfile: EventTicket.Frontend.Client/Dockerfile
