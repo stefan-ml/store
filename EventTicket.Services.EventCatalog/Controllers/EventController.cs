@@ -41,7 +41,7 @@ namespace EventTicket.Services.EventCatalog.Controllers
         }
 
         [HttpGet("eventsFilter")]
-        public async Task<ActionResult<List<Models.EventDto>>> GetEventsByIds([FromQuery] Guid categoryId, [FromQuery] string date, [FromQuery] string city)
+        public async Task<ActionResult<List<Models.EventDto>>> GetEventsByIds([FromQuery] Guid categoryId, [FromQuery] string? date, [FromQuery] string? city)
         {
             var result = await eventRepository.GetEvents(categoryId, date, city);
             return Ok(mapper.Map<List<Models.EventDto>>(result));
