@@ -54,13 +54,13 @@ services:
 
 
   eventticket.services.shoppingbasket:
-    image: ${docker_registry-}eventticketservicesshoppingbasket
+    image: ${DOCKER_REGISTRY-}eventticketservicesshoppingbasket
     ports:
       - "5004:80"
       - "5014:443"
     build:
       context: .
-      dockerfile: eventticket.services.shoppingbasket/dockerfile
+      dockerfile: EventTicket.Services.ShoppingBasket/Dockerfile
 
 
   eventticket.frontend.client:
