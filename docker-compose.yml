@@ -53,11 +53,14 @@ services:
   #     dockerfile: EventTicket.Services.Payment/Dockerfile
 
 
-  # eventticket.services.shoppingbasket:
-  #   image: ${DOCKER_REGISTRY-}eventticketservicesshoppingbasket
-  #   build:
-  #     context: .
-  #     dockerfile: EventTicket.Services.ShoppingBasket/Dockerfile
+  eventticket.services.shoppingbasket:
+    image: ${docker_registry-}eventticketservicesshoppingbasket
+    ports:
+      - "5004:80"
+      - "5014:443"
+    build:
+      context: .
+      dockerfile: eventticket.services.shoppingbasket/dockerfile
 
 
   eventticket.frontend.client:
