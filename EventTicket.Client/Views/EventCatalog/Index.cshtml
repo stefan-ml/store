@@ -1,0 +1,54 @@
+﻿@model EventTicket.Web.Models.View.EventListModel
+
+@{
+    var categoryListItems = Model.Categories.Select(c =>
+        new SelectListItem { Value = c.CategoryId.ToString(), Text = c.Name }
+    ).ToList();
+    categoryListItems.Insert(0, new SelectListItem { Text = "All" });
+}
+<form asp-action="SelectCategory" method="post">
+    <div class="row mt-5 mb-3 justify-content-center">
+
+        <div class="col-md-2">
+            <select asp-for="SelectedCategory" asp-items="categoryListItems" class="form-control"></select>
+        </div>
+        <div class="col-md-2">
+            <input type="date" asp-for="SelectedEventDate" class="form-control" placeholder="Event Date" value="@Model.SelectedEventDate" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" asp-for="SelectedEventCity" class="form-control" placeholder="City" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="filterButton">FILTER</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    @if (Model.Events.Count() == 0)
+    {
+        <text>No events were found.</text>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr class="columnHeader">
+                    <th></th>
+                    <th>DATE</th>
+                    <th>NAME</th>
+                    <th>ARTIST</th>
+                    <th>CITY</th>
+                    <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(m => m.Events)
+            </tbody>
+        </table>
+    }
+</div>
+
+@section Widget {
+    <partial name="_ShoppingCartWidget" model="@Model.NumberOfItems" />
+}
