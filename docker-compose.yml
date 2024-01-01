@@ -62,13 +62,12 @@ services:
       context: .
       dockerfile: EventTicket.Services.ShoppingBasket/Dockerfile
 
-
-  eventticket.frontend.client:
-    image: ${DOCKER_REGISTRY-}eventticketfrontendclient
+  eventticket.web:
+    image: ${DOCKER_REGISTRY-}eventticketweb
     ports:
-      - "5000:8080"
-      - "5010:8081"
+       - "5000:80"
+       - "5010:443"
     build:
       context: .
-      dockerfile: EventTicket.Frontend.Client/Dockerfile
+      dockerfile: EventTicket.Client/Dockerfile
 
