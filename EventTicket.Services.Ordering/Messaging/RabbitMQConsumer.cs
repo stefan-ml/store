@@ -28,52 +28,7 @@ namespace EventTicket.Services.Ordering.Messaging
 
         public void Start()
         {
-            ConnectionFactory factory = new ConnectionFactory() { HostName = "rabbitmq", Port = 5672, UserName = "guest", Password = "guest" };
-
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                try
-                {
-                    channel.ExchangeDeclare("checkoutmessage", ExchangeType.Topic);
-                }
-                catch (Exception)
-                {
-                }
-
-                channel.QueueDeclare(queue: checkoutMessageQueue, durable: false, exclusive: false, autoDelete: false, arguments: null);
-                channel.QueueDeclare(queue: orderPaymentUpdatedMessageQueue, durable: false, exclusive: false, autoDelete: false, arguments: null);
-                channel.QueueBind(queue: checkoutMessageQueue, exchange: "checkoutmessage", routingKey: "eventticketorder");
-
-
-                var checkoutConsumer = new EventingBasicConsumer(channel);
-                checkoutConsumer.Received += (model, ea) =>
-                {
-                    var body = ea.Body.ToArray();
-                    var message = Encoding.UTF8.GetString(body);
-
-                    OnCheckoutMessageReceived(message);
-
-                    channel.BasicAck(ea.DeliveryTag, false);
-                };
-
-                var orderPaymentUpdateConsumer = new EventingBasicConsumer(channel);
-                orderPaymentUpdateConsumer.Received += (model, ea) =>
-                {
-                    var body = ea.Body.ToArray();
-                    var message = Encoding.UTF8.GetString(body);
-
-                    OnOrderPaymentUpdateReceived(message);
-
-                    channel.BasicAck(ea.DeliveryTag, false);
-                };
-
-                channel.BasicConsume(queue: checkoutMessageQueue, autoAck: false, consumer: checkoutConsumer);
-                channel.BasicConsume(queue: orderPaymentUpdatedMessageQueue, autoAck: false, consumer: orderPaymentUpdateConsumer);
-
-                Console.WriteLine("RabbitMQ Consumer Started");
-                Console.ReadLine(); // Keep the application running
-            }
+            
         }
 
         private void OnOrderPaymentUpdateReceived(string message)
@@ -113,7 +68,7 @@ namespace EventTicket.Services.Ordering.Messaging
 
             try
             {
-                _messageBus.PublishMessage(orderPaymentRequestMessage, orderPaymentUpdatedMessageQueue);
+                //_messageBus.PublishMessage(orderPaymentRequestMessage, orderPaymentUpdatedMessageQueue);
             }
             catch (Exception e)
             {
@@ -124,6 +79,55 @@ namespace EventTicket.Services.Ordering.Messaging
 
         public void Stop()
         {
+        }
+
+        public async Task ReadMessgaes()
+        {
+            ConnectionFactory factory = new ConnectionFactory() { HostName = "rabbitmq", Port = 5672, UserName = "guest", Password = "guest" };
+
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                try
+                {
+                    channel.ExchangeDeclare("checkoutmessage", ExchangeType.Topic);
+                }
+                catch (Exception)
+                {
+                }
+
+                channel.QueueDeclare(queue: checkoutMessageQueue, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueDeclare(queue: orderPaymentUpdatedMessageQueue, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueBind(queue: checkoutMessageQueue, exchange: "checkoutmessage", routingKey: "eventticketorder");
+
+
+                var checkoutConsumer = new EventingBasicConsumer(channel);
+                checkoutConsumer.Received += (model, ea) =>
+                {
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+
+                    OnCheckoutMessageReceived(message);
+
+                    //((EventingBasicConsumer)model).BasicAck(ea.DeliveryTag, false);
+                };
+
+                var orderPaymentUpdateConsumer = new EventingBasicConsumer(channel);
+                orderPaymentUpdateConsumer.Received += (model, ea) =>
+                {
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+
+                    OnOrderPaymentUpdateReceived(message);
+
+                    //(model as IModel)?.BasicAck(ea.DeliveryTag, false);
+                };
+
+                channel.BasicConsume(queue: checkoutMessageQueue, autoAck: true, consumer: checkoutConsumer);
+                channel.BasicConsume(queue: orderPaymentUpdatedMessageQueue, autoAck: true, consumer: orderPaymentUpdateConsumer);
+
+                Console.WriteLine("RabbitMQ Consumer Started");
+            }
         }
     }
 }

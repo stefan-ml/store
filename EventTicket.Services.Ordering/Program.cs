@@ -30,7 +30,7 @@ builder.Services.AddSingleton(new OrderRepository(optionsBuilder.Options));
 
 builder.Services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
 builder.Services.AddSingleton<IRabbitMQConsumer, RabbitMQConsumer>();
-builder.Services.AddHostedService<Worker>();
+builder.Services.AddHostedService<ConsumerHostedService>();//builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
