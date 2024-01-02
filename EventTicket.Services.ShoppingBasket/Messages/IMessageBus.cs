@@ -4,6 +4,6 @@ namespace EventTicket.Services.ShoppingBasket.Messages
 {
     public interface IMessageBus
     {
-        Task PublishMessage (IntegrationBaseMessage message, string topicName);
+        void PublishMessage(IntegrationBaseMessage message, string exchangeName, string routingKey);
     }
 }

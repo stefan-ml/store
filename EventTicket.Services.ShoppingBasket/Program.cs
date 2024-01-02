@@ -17,7 +17,7 @@ builder.Services.AddScoped<IBasketLinesRepository, BasketLinesRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IBasketChangeEventRepository, BasketChangeEventRepository>();
 
-builder.Services.AddSingleton<IMessageBus, AzServiceBusMessageBus>();
+builder.Services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
 
 builder.Services.AddHttpClient<IEventCatalogService, EventCatalogService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:EventCatalog:Uri"]));

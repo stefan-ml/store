@@ -1,6 +1,10 @@
+using EventTicket.Services.Ordering;
 using EventTicket.Services.Ordering.DbContexts;
+using EventTicket.Services.Ordering.Messages;
+using EventTicket.Services.Ordering.Messaging;
 using EventTicket.Services.Ordering.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,12 +23,14 @@ builder.Services.AddDbContext<OrderDbContext>(options =>
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 //Specific DbContext for use from singleton AzServiceBusConsumer
-//var optionsBuilder = new DbContextOptionsBuilder<OrderDbContext>();
-//optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+var optionsBuilder = new DbContextOptionsBuilder<OrderDbContext>();
+optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("ConnDbStr"));
 
-//services.AddSingleton(new OrderRepository(optionsBuilder.Options));
+builder.Services.AddSingleton(new OrderRepository(optionsBuilder.Options));
 
-//services.AddSingleton<IMessageBus, AzServiceBusMessageBus>();
+builder.Services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
+builder.Services.AddSingleton<IRabbitMQConsumer, RabbitMQConsumer>();
+builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -57,7 +63,5 @@ app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
-
-//app.UseAzServiceBusConsumer();
 
 app.Run();

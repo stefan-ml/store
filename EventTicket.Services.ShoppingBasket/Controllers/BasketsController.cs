@@ -129,7 +129,7 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
 
                 try
                 {
-                    await messageBus.PublishMessage(basketCheckoutMessage, "checkoutmessage");
+                    messageBus.PublishMessage(basketCheckoutMessage, "checkoutmessage", routingKey: "eventticketorder");
                 }
                 catch (Exception e)
                 {
