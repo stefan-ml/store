@@ -11,7 +11,8 @@
         "eventticker.services.discount": "StartDebugging",
         "eventticket.services.payment": "StartDebugging",
         "eventticket.services.shoppingbasket": "StartDebugging",
-        "eventticket.web": "StartDebugging"
+        "eventticket.web": "StartDebugging",
+        "external.paymentgateway": "StartDebugging"
       }
     }
   }

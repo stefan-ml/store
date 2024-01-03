@@ -77,3 +77,13 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+
+  external.paymentgateway:
+    image: ${DOCKER_REGISTRY-}externalpaymentgateway
+    ports:
+       - "5006:80"
+       - "5016:443"
+    build:
+      context: .
+      dockerfile: External.PaymentGateway/Dockerfile
+
