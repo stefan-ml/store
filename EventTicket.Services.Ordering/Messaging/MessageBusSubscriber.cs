@@ -14,9 +14,11 @@ namespace EventTicket.Services.Ordering.Messaging
         private IConnection _connection;
         private IModel _channel;
         private string _queueName;
+        private string _paymentResponseQueueName;
         private readonly OrderRepository _orderRepository;
         private readonly IMessageBusClient _messageBusClient;
         private readonly string exchangeName = "checkoutmessage";
+        private readonly string exchangeNamePaymentResponse = "paymentresponse";
 
         public MessageBusSubscriber(
             IConfiguration configuration,
@@ -47,6 +49,10 @@ namespace EventTicket.Services.Ordering.Messaging
                 exchange: exchangeName,
                 routingKey: "");
 
+            _channel.ExchangeDeclare(exchange: exchangeNamePaymentResponse, type: ExchangeType.Fanout);
+            _paymentResponseQueueName = _channel.QueueDeclare().QueueName;
+            _channel.QueueBind(queue: _paymentResponseQueueName, exchange: exchangeNamePaymentResponse, routingKey: "");
+
             Console.WriteLine("--> Listenting on the Message Bus...");
 
             _connection.ConnectionShutdown += RabbitMQ_ConnectionShitdown;
@@ -68,7 +74,20 @@ namespace EventTicket.Services.Ordering.Messaging
                 OnCheckoutMessageReceived(message);
             };
 
+            var paymentResponseConsumer = new EventingBasicConsumer(_channel);
+            paymentResponseConsumer.Received += (model, ea) =>
+            {
+                Console.WriteLine("--> Payment Response Received!");
+
+                var body = ea.Body;
+                var message = Encoding.UTF8.GetString(body.ToArray());
+
+                OnOrderPaymentUpdateReceived(message);
+            };
+
+
             _channel.BasicConsume(queue: _queueName, autoAck: true, consumer: consumer);
+            _channel.BasicConsume(queue: _paymentResponseQueueName, autoAck: true, consumer: paymentResponseConsumer);
 
             return Task.CompletedTask;
         }

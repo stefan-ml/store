@@ -1,7 +1,4 @@
 ﻿using System.Text;
-using EventTicket.Services.Ordering.Entities;
-using EventTicket.Services.Ordering.Messages;
-using EventTicket.Services.Ordering.Repositories;
 using EventTicket.Services.Payment.Messages;
 using EventTicket.Services.Payment.Messaging;
 using EventTicket.Services.Payment.Models;
@@ -116,7 +113,7 @@ namespace EventTicket.Services.Payment.Worker
 
             try
             {
-                //await messageBus.PublishMessage(orderPaymentUpdateMessage, orderPaymentUpdatedMessageTopic);
+                _messageBusClient.PublishPaymentResponse(orderPaymentUpdateMessage);
             }
             catch (Exception e)
             {

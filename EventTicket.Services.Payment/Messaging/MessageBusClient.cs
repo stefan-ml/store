@@ -10,7 +10,7 @@ namespace EventTicket.Services.Payment.Messaging
         private readonly IConfiguration _configuration;
         private readonly IConnection _connection;
         private readonly IModel _channel;
-        private readonly string exchangeNamePaymentRequest = "paymentrequest";
+        private readonly string exchangeNamePaymentRequest = "paymentresponse";
 
         public MessageBusClient(IConfiguration configuration)
         {
@@ -40,7 +40,7 @@ namespace EventTicket.Services.Payment.Messaging
             }
         }
 
-        public void PublishPaymentRequest(IntegrationBaseMessage paymentRequest)
+        public void PublishPaymentResponse(OrderPaymentUpdateMessage paymentRequest)
         {
             var message = JsonSerializer.Serialize(paymentRequest);
 

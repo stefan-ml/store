@@ -4,6 +4,6 @@ namespace EventTicket.Services.ShoppingBasket.Messages
 {
     public interface IMessageBusClient
     {
-        void PublishNewOrder(IntegrationBaseMessage order);
+        void PublishNewOrder(BasketCheckoutMessage order);
     }
 }

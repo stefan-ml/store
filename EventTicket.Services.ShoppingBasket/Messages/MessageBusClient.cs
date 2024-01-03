@@ -41,7 +41,7 @@ namespace EventTicket.Services.ShoppingBasket.Messages
             }
         }
 
-        public void PublishNewOrder(IntegrationBaseMessage order)
+        public void PublishNewOrder(BasketCheckoutMessage order)
         {
             var message = JsonSerializer.Serialize(order);
 

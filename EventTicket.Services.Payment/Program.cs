@@ -16,8 +16,22 @@ builder.Services.AddHostedService<MessageBusSubscriber>();
 builder.Services.AddHttpClient<IExternalGatewayPaymentService, ExternalGatewayPaymentService>(c =>
                 c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:ExternalPaymentGateway:Uri"]));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        policy =>
+        {
+            policy.AllowAnyOrigin() // note the port is included 
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
+app.UseRouting();
+
+app.UseCors("CorsPolicy");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -25,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

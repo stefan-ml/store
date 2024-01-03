@@ -4,6 +4,6 @@ namespace EventTicket.Services.Payment.Messaging
 {
     public interface IMessageBusClient
     {
-        void PublishPaymentRequest(IntegrationBaseMessage paymentRequest);
+        void PublishPaymentResponse(OrderPaymentUpdateMessage paymentRequest);
     }
 }

@@ -42,7 +42,7 @@ namespace EventTicket.Services.Ordering.Messaging
             }
         }
 
-        public void PublishPaymentRequest(IntegrationBaseMessage paymentRequest)
+        public void PublishPaymentRequest(OrderPaymentRequestMessage paymentRequest)
         {
             var message = JsonSerializer.Serialize(paymentRequest);
 
