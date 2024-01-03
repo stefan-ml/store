@@ -14,10 +14,10 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
     {
         private readonly IBasketRepository basketRepository;
         private readonly IMapper mapper;
-        private readonly IMessageBus messageBus;
+        private readonly IMessageBusClient messageBus;
         private readonly IDiscountService discountService;
 
-        public BasketsController(IBasketRepository basketRepository, IMapper mapper, IMessageBus messageBus, IDiscountService discountService)
+        public BasketsController(IBasketRepository basketRepository, IMapper mapper, IMessageBusClient messageBus, IDiscountService discountService)
         {
             this.basketRepository = basketRepository;
             this.mapper = mapper;
@@ -129,7 +129,7 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
 
                 try
                 {
-                    messageBus.PublishMessage(basketCheckoutMessage, "checkoutmessage", routingKey: "eventticketorder");
+                    messageBus.PublishNewOrder(basketCheckoutMessage);
                 }
                 catch (Exception e)
                 {
