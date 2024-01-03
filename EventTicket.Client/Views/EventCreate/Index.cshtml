@@ -97,23 +97,27 @@
     <tbody>
         @foreach (var eventItem in Model.Events)
         {
-        <tr>
-            <td>@eventItem.Name</td>
-            <td>@eventItem.Price $</td>
-            <td>@eventItem.Artist</td>
-            <td>@eventItem.Date.ToString("MM/dd/yyyy")</td>
-            <td>@eventItem.CategoryName</td>
-            <td>@eventItem.City</td>
-            <td>
-                <form asp-action="Delete" method="post">
-                    <input type="hidden" name="eventId" value="@eventItem.EventId" />
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <td>@eventItem.Name</td>
+                <td>@eventItem.Price $</td>
+                <td>@eventItem.Artist</td>
+                <td>@eventItem.Date.ToString("MM/dd/yyyy")</td>
+                <td>@eventItem.CategoryName</td>
+                <td>@eventItem.City</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="eventId" value="@eventItem.EventId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+@section Widget {
+    <partial name="_logoWidget"/>
+}
 
 
 
