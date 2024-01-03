@@ -120,7 +120,7 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
 
                 if (coupon != null)
                 {
-                    basketCheckoutMessage.BasketTotal = total - coupon.Amount;
+                    basketCheckoutMessage.BasketTotal = total - coupon.Amount ?? 0;
                 }
                 else
                 {

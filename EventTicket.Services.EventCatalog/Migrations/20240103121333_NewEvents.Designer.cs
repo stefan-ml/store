@@ -4,6 +4,7 @@ using EventTicket.Services.EventCatalog.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventTicket.Services.EventCatalog.Migrations
 {
     [DbContext(typeof(EventCatalogDbContext))]
-    partial class EventCatalogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240103121333_NewEvents")]
+    partial class NewEvents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,7 +110,7 @@ namespace EventTicket.Services.EventCatalog.Migrations
                             Artist = "Test",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             City = "Belgrade",
-                            Date = new DateTime(2024, 7, 3, 13, 14, 57, 569, DateTimeKind.Local).AddTicks(5853),
+                            Date = new DateTime(2024, 7, 3, 13, 13, 33, 865, DateTimeKind.Local).AddTicks(5589),
                             Description = "Test",
                             ImageUrl = "https://example.com/image1.jpg",
                             Name = "Test",
@@ -119,7 +122,7 @@ namespace EventTicket.Services.EventCatalog.Migrations
                             Artist = "Test 2",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             City = "Nis",
-                            Date = new DateTime(2024, 10, 3, 13, 14, 57, 569, DateTimeKind.Local).AddTicks(5937),
+                            Date = new DateTime(2024, 10, 3, 13, 13, 33, 865, DateTimeKind.Local).AddTicks(5662),
                             Description = "Test 2",
                             ImageUrl = "https://example.com/image2.jpg",
                             Name = "Test 2",

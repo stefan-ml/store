@@ -47,13 +47,13 @@
         <tr>
             <td colspan="4" class="text-right bold big">Discount:</td>
             <td class="text-right bold big">
-                @Model.Discount.ToString("c")
+                $@Model.Discount.ToString()
             </td>
         </tr>
         <tr>
             <td colspan="4" class="text-right bold big">Total:</td>
             <td class="text-right bold big">
-                @((Model.ShoppingCartTotal - Model.Discount).ToString("c"))
+                $@((Model.ShoppingCartTotal - Model.Discount).ToString())
             </td>
         </tr>
     </tfoot>
