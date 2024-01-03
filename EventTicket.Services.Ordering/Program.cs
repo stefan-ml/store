@@ -28,9 +28,9 @@ optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("ConnDbStr
 
 builder.Services.AddSingleton(new OrderRepository(optionsBuilder.Options));
 
-builder.Services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
-builder.Services.AddSingleton<IRabbitMQConsumer, RabbitMQConsumer>();
-builder.Services.AddHostedService<ConsumerHostedService>();//builder.Services.AddHostedService<Worker>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddHostedService<MessageBusSubscriber>();
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
