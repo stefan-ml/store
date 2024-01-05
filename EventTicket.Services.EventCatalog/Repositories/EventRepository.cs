@@ -33,7 +33,6 @@ namespace EventTicket.Services.EventCatalog.Repositories
                 .Where(x => (categoryId == Guid.Empty || x.CategoryId == categoryId)
                             && (string.IsNullOrEmpty(city) || x.City.ToLower().Contains(city.ToLower()))
                             && (eventDate == null || EF.Functions.DateDiffDay(x.Date, eventDate) == 0));
-
             return await query.ToListAsync();
         }
 
@@ -75,15 +74,12 @@ namespace EventTicket.Services.EventCatalog.Repositories
             try
             {
                 var eventToDelete = await _eventCatalogDbContext.Events.FindAsync(eventId);
-
                 if (eventToDelete == null)
                 {
                     return false;
                 }
-
                 _eventCatalogDbContext.Events.Remove(eventToDelete);
                 await _eventCatalogDbContext.SaveChangesAsync();
-
                 return true;
             }
             catch (Exception ex)

@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("CorsPolicy",
         policy =>
         {
-            policy.AllowAnyOrigin() // note the port is included 
+            policy.AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -30,8 +30,6 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 
 app.UseCors("CorsPolicy");
-
-//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

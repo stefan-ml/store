@@ -17,14 +17,13 @@ builder.Services.AddScoped<IBasketLinesRepository, BasketLinesRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IBasketChangeEventRepository, BasketChangeEventRepository>();
 
-builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();//builder.Services.AddSingleton<IMessageBus, RabbitMQMessageBus>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 builder.Services.AddHttpClient<IEventCatalogService, EventCatalogService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:EventCatalog:Uri"]));
 
 builder.Services.AddHttpClient<IDiscountService, DiscountService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:Discount:Uri"]));
-    //.AddPolicyHandler(GetRetryPolicy()).AddPolicyHandler(GetCircuitBreakerPolicy());
 
 builder.Services.AddDbContext<ShoppingBasketDbContext>(options =>
 {
@@ -43,8 +42,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

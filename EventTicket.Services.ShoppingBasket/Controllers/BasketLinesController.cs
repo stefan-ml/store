@@ -121,9 +121,6 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
                 return NotFound();
             }
 
-            // map the entity to a dto
-            // apply the updated field values to that dto
-            // map the dto back to an entity
             mapper.Map(basketLineForUpdate, basketLineEntity);
 
             basketLinesRepository.UpdateBasketLine(basketLineEntity);
@@ -135,10 +132,6 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
         [HttpDelete("{basketLineId}")]
         public async Task<IActionResult> Delete(Guid basketId, Guid basketLineId)
         {
-            //if (!await basketRepository.BasketExists(basketId))
-            //{
-            //    return NotFound();
-            //}
 
             var basket = await basketRepository.GetBasketById(basketId);
 
@@ -157,7 +150,6 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
             basketLinesRepository.RemoveBasketLine(basketLineEntity);
             await basketLinesRepository.SaveChanges();
 
-            //publish removal event
             BasketChangeEvent basketChangeEvent = new BasketChangeEvent
             {
                 BasketChangeType = BasketChangeTypeEnum.Remove,

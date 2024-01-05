@@ -17,7 +17,7 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
         private readonly IMessageBusClient messageBus;
         private readonly IDiscountService discountService;
 
-        public BasketsController(IBasketRepository basketRepository, IMapper mapper, IMessageBusClient messageBus, IDiscountService discountService)
+        public BasketsController(IBasketRepository basketRepositorsy, IMapper mapper, IMessageBusClient messageBus, IDiscountService discountService)
         {
             this.basketRepository = basketRepository;
             this.mapper = mapper;
@@ -109,14 +109,10 @@ namespace EventTicket.Services.ShoppingBasket.Controllers
                     basketCheckoutMessage.BasketLines.Add(basketLineMessage);
                 }
 
-                //apply discountt by talking to the discount service
                 Coupon coupon = null;
 
                 if (basket.CouponId.HasValue)
                     coupon = await discountService.GetCoupon(basket.CouponId.Value);
-                //
-                //if (basket.CouponId.HasValue)
-                //    coupon = await discountService.GetCouponWithError(basket.CouponId.Value);
 
                 if (coupon != null)
                 {
