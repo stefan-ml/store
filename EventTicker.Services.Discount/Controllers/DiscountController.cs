@@ -45,21 +45,6 @@ namespace EventTicker.Services.Discount.Controllers
             return Ok(_mapper.Map<CouponDto>(coupon));
         }
 
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [HttpGet("error/{couponId}")]
-        public async Task<IActionResult> GetDiscountForCode2(Guid couponId)
-        {
-
-            return new StatusCodeResult(StatusCodes.Status500InternalServerError);
-
-            var coupon = await _couponRepository.GetCouponById(couponId);
-
-            if (coupon == null)
-                return NotFound();
-
-            return Ok(_mapper.Map<CouponDto>(coupon));
-        }
-
         [HttpPut("use/{couponId}")]
         public async Task<IActionResult> UseCoupon(Guid couponId)
         {
